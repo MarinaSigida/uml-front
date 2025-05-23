@@ -85,6 +85,31 @@ const CreatePost = () => {
                 </div>
               </label>
             </div>
+
+            <div>
+              <label>
+                Photo URL:{' '}
+                <div className="add-post-item-input">
+                  <input
+                    value={photoUrl}
+                    onChange={(e) => setPhotoUrl(e.target.value)}
+                  />
+                </div>
+              </label>
+              <div
+                className="form-button-container"
+                style={{ marginBottom: '10px' }}
+              >
+                <button type="button" onClick={addPhoto}>
+                  Ajouter une photo
+                </button>
+              </div>
+            </div>
+            <ul>
+              {photos.map((photo) => (
+                <li key={photo.id}>{photo.url}</li>
+              ))}
+            </ul>
             <div>
               <label>
                 Niveau de difficulté:{' '}
@@ -114,28 +139,9 @@ const CreatePost = () => {
                 </div>
               </label>
             </div>
-
-            <div>
-              <label>
-                Photo URL:{' '}
-                <div className="add-post-item-input">
-                  <input
-                    value={photoUrl}
-                    onChange={(e) => setPhotoUrl(e.target.value)}
-                  />
-                </div>
-              </label>
-              <button type="button" onClick={addPhoto}>
-                Ajouter une photo
-              </button>
+            <div className="form-button-container">
+              <button type="submit">Créer un compte</button>
             </div>
-            <ul>
-              {photos.map((photo) => (
-                <li key={photo.id}>{photo.url}</li>
-              ))}
-            </ul>
-
-            <button type="submit">Enregistrer</button>
           </form>
         </div>
       </section>
