@@ -5,12 +5,30 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const credentials = { email, password };
-    console.log('Logging in with:', credentials);
-    alert('Login submitted! (Check console)');
+
+    try {
+      const res = await fetch('http://localhost:5000/api/users/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(credentials),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert('Login successful!');
+        console.log('User:', data.user);
+      } else {
+        alert('Login failed: ' + data.message);
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      alert('Network error during login');
+    }
   };
   return (
     <div className="main">

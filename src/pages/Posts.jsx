@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 const mockPosts = [
   {
     title: 'Mountain Trail',
@@ -34,11 +36,27 @@ const mockPosts = [
 ];
 
 const Posts = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const res = await fetch('http://localhost:5000/api/posts/get-posts');
+        const data = await res.json();
+        setPosts(data);
+      } catch (err) {
+        console.error('Error fetching posts:', err);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
   return (
     <div className="main">
       <h2>Posts</h2>
       <div className="posts-list">
-        {mockPosts.map((post, index) => (
+        {posts.map((post, index) => (
           <div
             key={index}
             className="post-card"
