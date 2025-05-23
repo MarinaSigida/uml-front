@@ -1,0 +1,47 @@
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'xxl': 1400px,
+);
+
+$colors: (
+  'light': #fafafa,
+  'white': #ffffff,
+  'light-basic': #c7f9dd,
+  'dark-basic': #029426f7,
+  'very-dark-basic': #0d4d04,
+  'dark': #111111,
+  'grey': #7b7777,
+  'red': rgb(202, 54, 54),
+  'yellow': rgba(255, 170, 0, 0.892),
+  'green': rgba(93, 158, 19, 0.902),
+);
+
+$paddings: (
+  'lg': 20px,
+);
+
+$main-font: 'Montserrat';
+
+$font-weights: (
+  'Regular': 400,
+  'Medium': 500,
+  'SemiBold': 600,
+  'ExtraBold': 800,
+);
+
+$font-sizes: (
+  'xs': 12px,
+  'sm': 14px,
+  'md': 16px,
+  'lg': 24px,
+  'xl': 28px,
+  'xxl': 40px,
+);
+
+$easings: (
+  'fast': 300ms ease,
+  'slow': 600ms ease,
+);

@@ -1,0 +1,295 @@
+@use '../utils/placeholders';
+@use '../utils/variables' as var;
+@use '../utils/functions' as fn;
+@use '../utils/mixins' as mx;
+
+body {
+  @extend %main-text;
+  font-family: var.$main-font, sans-serif;
+  color: fn.get-color('dark');
+  background-color: fn.get-color('light');
+}
+
+button {
+  display: inline-block;
+  font-family: inherit;
+  width: auto;
+  padding: 10px 16px;
+  font-size: 14px;
+  text-align: center;
+  color: fn.get-color('white');
+  background-color: fn.get-color('dark-basic');
+  border: 2px solid transparent;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  box-sizing: border-box;
+
+  &:hover,
+  &:focus {
+    background-color: fn.get-color('white');
+    color: fn.get-color('dark-basic');
+    border: 2px solid fn.get-color('dark-basic');
+  }
+  @include mx.media-query('lg') {
+    padding: 14px 40px;
+    font-size: 16px;
+  }
+}
+
+.link-button {
+  display: inline-block;
+  font-family: inherit;
+  width: auto;
+  padding: 10px 16px;
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: fn.get-color('white');
+  background-color: fn.get-color('dark-basic');
+  border: 2px solid transparent;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  box-sizing: border-box;
+
+  &:hover,
+  &:focus {
+    background-color: fn.get-color('white');
+    color: fn.get-color('dark-basic');
+    border: 2px solid fn.get-color('dark-basic');
+  }
+  @include mx.media-query('lg') {
+    padding: 14px 40px;
+    font-size: 16px;
+  }
+}
+
+.catalog-filter-btn.active {
+  background-color: fn.get-color('white');
+  color: fn.get-color('dark-basic');
+  border: 2px solid fn.get-color('dark-basic');
+}
+
+.buy-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+}
+
+.remove-item-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remove-item-container img {
+  width: 56px;
+  height: 56px;
+}
+.quantity-btn {
+  width: 20px;
+  padding: 0 3px;
+  border-radius: 20px;
+}
+
+.empty-basket-button {
+  padding: 4px 12px;
+  font-size: 14px;
+}
+
+.stock-item-buttons,
+.user-card-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  button {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+}
+
+.dashboard-order-modify-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  button {
+    padding: 10px 10px;
+    font-size: 12px;
+    @include mx.media-query('lg') {
+      padding: 14px 40px;
+      font-size: 16px;
+    }
+  }
+
+  @include mx.media-query('lg') {
+    gap: 20px;
+  }
+
+  #confirm-btn {
+    background-color: fn.get-color('green');
+    &:hover,
+    &:focus {
+      background-color: fn.get-color('white');
+      color: fn.get-color('green');
+      border: 2px solid fn.get-color('green');
+    }
+  }
+  #modify-btn {
+    background-color: fn.get-color('yellow');
+    &:hover,
+    &:focus {
+      background-color: fn.get-color('white');
+      color: fn.get-color('yellow');
+      border: 2px solid fn.get-color('yellow');
+    }
+  }
+  #cancel-btn {
+    background-color: fn.get-color('red');
+    &:hover,
+    &:focus {
+      background-color: fn.get-color('white');
+      color: fn.get-color('red');
+      border: 2px solid fn.get-color('red');
+    }
+  }
+}
+
+.logout-button {
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: none;
+  &:hover,
+  &:focus {
+    background-color: none;
+    color: none;
+    border: none;
+  }
+  .icon {
+    transition: scale 0.3s ease;
+    &:hover,
+    &:focus {
+      scale: 1.05;
+    }
+  }
+}
+
+.icon-open,
+.icon-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 16px;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    scale: 1.1;
+  }
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  right: 20px;
+  width: 16px;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    scale: 1.1;
+  }
+  @include mx.media-query('lg') {
+    width: 24px;
+  }
+}
+
+/* Remove browser autofill background (e.g., yellow on mobile) */
+input:-webkit-autofill {
+  background-color: transparent !important;
+  color: inherit !important;
+  -webkit-box-shadow: 0 0 0px 1000px fn.get-color('light') inset !important;
+  border-radius: 30px;
+}
+
+.error-message {
+  margin: 20px 0;
+}
+.form-error {
+  font-size: 14px;
+  color: fn.get-color('light-basic');
+  padding: 0;
+}
+
+.pagination {
+  display: flex;
+  gap: 20px;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      margin: auto 0;
+    }
+
+    &:hover,
+    &:focus {
+      svg {
+        fill: fn.get-color('dark-basic');
+      }
+    }
+  }
+}
+
+.pagination-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-up-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000;
+
+  svg {
+    stroke: white;
+  }
+  &:hover,
+  &:focus {
+    svg {
+      stroke: fn.get-color('dark-basic');
+    }
+  }
+}
+
+.show-hide-password-icon {
+  cursor: pointer;
+  width: 20px;
+  margin-left: -30px;
+  position: absolute;
+  right: 16px;
+}
