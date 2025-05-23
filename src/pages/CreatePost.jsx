@@ -75,7 +75,7 @@ const CreatePost = () => {
             </div>
             <div>
               <label>
-                Author:
+                Auteur:
                 <div className="add-post-item-input">
                   <input
                     value={author}
@@ -87,7 +87,7 @@ const CreatePost = () => {
             </div>
             <div>
               <label>
-                Difficulty Level:{' '}
+                Niveau de difficulté:{' '}
                 <div className="add-post-item-input">
                   <input
                     type="number"
@@ -102,7 +102,7 @@ const CreatePost = () => {
             </div>
             <div>
               <label>
-                Duration (hours):{' '}
+                Durée:{' '}
                 <div className="add-post-item-input">
                   <input
                     type="number"
@@ -126,7 +126,7 @@ const CreatePost = () => {
                 </div>
               </label>
               <button type="button" onClick={addPhoto}>
-                Add Photo
+                Ajouter une photo
               </button>
             </div>
             <ul>
@@ -135,7 +135,7 @@ const CreatePost = () => {
               ))}
             </ul>
 
-            <button type="submit">Submit</button>
+            <button type="submit">Enregistrer</button>
           </form>
         </div>
       </section>
