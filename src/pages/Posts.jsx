@@ -41,7 +41,9 @@ const Posts = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/posts/get-posts');
+        const res = await fetch('http://localhost:3000/api/posts/get-posts', {
+          method: 'GET',
+        });
         const data = await res.json();
         setPosts(data);
       } catch (err) {

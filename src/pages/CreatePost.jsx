@@ -16,10 +16,10 @@ const CreatePost = () => {
     setPhotoUrl('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = {
+    const postDetails = {
       title,
       description,
       geoURL,
@@ -29,9 +29,30 @@ const CreatePost = () => {
       duration,
     };
 
-    console.log('Form Data:', formData);
-    alert('Form submitted! See console.');
+    try {
+      const res = await fetch('http://localhost:3000/api/posts/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(postDetails),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert('Post created successfully!');
+        console.log('Response:', data);
+      } else {
+        alert('Error: ' + data.message);
+        console.error('Server error:', data);
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+      alert('Network error: ' + error.message);
+    }
   };
+
   return (
     <div className="main">
       <section className="post-section">
